@@ -22,7 +22,26 @@ angular.module('video-player')
     });
   };
 
-  
+  this.getComments = function(video) {
+    
+    return $http({
+      method: 'GET',
+      url: 'https://www.googleapis.com/youtube/v3/comments',
+      //contentType: 'application/json',
+      params: {
+        part: 'snippet',
+        key: $window.YOUTUBE_API_KEY,
+        type: 'video',
+        maxresults: 10,
+        videoId: video.id
+      }
+    }).then(function successCallback(response) {
+      console.log(response);
+
+    }, function errorCallback(response) {
+      console.log(response.data.error.errors[0].message);
+    });
+  };
   
 
 });

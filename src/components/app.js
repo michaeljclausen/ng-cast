@@ -6,7 +6,11 @@ angular.module('video-player')
     
     this.$onInit = () => {
       this.videos = exampleVideoData;
-      this.currentVideo = this.videos[0];  
+      this.currentVideo = exampleVideoData[0];
+      youTube.getSearchResults('cats', (data) => {
+        this.videos = data;
+        this.currentVideo = data[0];
+      }); 
     },
     
     this.handleVideoEntryClick = (video) => {
@@ -17,7 +21,7 @@ angular.module('video-player')
       youTube.getSearchResults(query, (data) => {
         this.videos = data;
         this.currentVideo = data[0];
-        
+        youTube.getComments(data[0].id);
       });
     };
   }
