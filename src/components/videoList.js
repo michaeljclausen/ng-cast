@@ -1,6 +1,5 @@
 angular.module('video-player')
 .component('videoList', {
-  templateUrl: 'src/templates/videoList.html',
   bindings: {
     videos: '<',
     handleClick: '<'
@@ -10,5 +9,6 @@ angular.module('video-player')
     //this.onClick = () => {
       
     //};
-  }
+  },
+  templateUrl: 'src/templates/videoList.html'
 });
