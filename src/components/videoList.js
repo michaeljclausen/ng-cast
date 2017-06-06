@@ -5,8 +5,9 @@ angular.module('video-player')
     videos: '<'
   },
   controller: function() {
-    console.log(this);
-    //this.movies = exampleVideoData;
-    
+    //console.log(this);
+    this.onClick = () => {
+      
+    };
   }
 });

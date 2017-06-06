@@ -1,8 +1,11 @@
-angular.module('video-player', [])
+angular.module('video-player')
 
 .component('app', {
   templateUrl: 'src/templates/app.html',
-  controller() {
-    this.videos = exampleVideoData;
+  controller: function() {
+    this.videos = exampleVideoData; // initial listData
+    // set inital state
+    this.currentVideo = this.videos[0];
+    
   }
 });
