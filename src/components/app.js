@@ -6,6 +6,9 @@ angular.module('video-player')
     this.videos = exampleVideoData; // initial listData
     // set inital state
     this.currentVideo = this.videos[0];
-    
+    this.handleVideoEntryClick = (video) => {
+      console.log(video);
+      this.currentVideo = video;
+    };
   }
 });
