@@ -2,20 +2,23 @@ angular.module('video-player')
 
 .component('app', {
   templateUrl: 'src/templates/app.html',
-  controller: function() {
+  controller: function(youTube) {
     
-    this.videos = exampleVideoData; // initial listData
-    // set inital state
-    this.currentVideo = this.videos[0];
+    this.$onInit = () => {
+      this.videos = exampleVideoData;
+      this.currentVideo = this.videos[0];  
+    },
     
     this.handleVideoEntryClick = (video) => {
-      console.log(video);
       this.currentVideo = video;
     };
     
     this.handleSearchClick = (query) => {
-      getSearchResults(query);
-      console.log(query);
+      youTube.getSearchResults(query, (data) => {
+        this.videos = data;
+        this.currentVideo = data[0];
+        
+      });
     };
   }
 });
